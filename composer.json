@@ -39,7 +39,7 @@
         "pre-package-install":[
             "DM\\SynologyBundle::postPackageInstall"
         ],
-        "pre-update-install":[
+        "pre-package-update":[
             "DM\\SynologyBundle::postPackageInstall"
         ],
         "post-package-uninstall": [
