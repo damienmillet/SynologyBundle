@@ -36,10 +36,16 @@
     "require-dev": {
     },
     "scripts": {
-        "pre-package-install":[
+        "pre-install-cmd":[
             "DM\\SynologyBundle::postPackageInstall"
         ],
-        "pre-package-update":[
+        "pre-update-cmd":[
+            "DM\\SynologyBundle::postPackageInstall"
+        ],
+        "post-install-cmd":[
+            "DM\\SynologyBundle::postPackageInstall"
+        ],
+        "post-update-cmd":[
             "DM\\SynologyBundle::postPackageInstall"
         ],
         "post-package-uninstall": [
