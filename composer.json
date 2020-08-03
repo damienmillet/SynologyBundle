@@ -37,19 +37,31 @@
     },
     "scripts": {
         "pre-install-cmd":[
-            "DM\\SynologyBundle::postPackageInstall"
+            "DM\\SynologyBundle\\Synology::postPackageInstall"
         ],
         "pre-update-cmd":[
-            "DM\\SynologyBundle::postPackageInstall"
+            "DM\\SynologyBundle\\Synology::postPackageInstall"
         ],
-        "post-install-cmd":[
-            "DM\\SynologyBundle::postPackageInstall"
+        "post-update-cmd": [
+            "DM\\SynologyBundle\\Synology::postPackageInstall"
         ],
-        "post-update-cmd":[
-            "DM\\SynologyBundle::postPackageInstall"
+        "post-install-cmd": [
+            "DM\\SynologyBundle\\Synology::postPackageInstall"
+        ],
+        "pre-package-install":[
+            "DM\\SynologyBundle\\Synology::postPackageInstall"
+        ],
+        "pre-package-update":[
+            "DM\\SynologyBundle\\Synology::postPackageInstall"
+        ],
+        "post-package-install": [
+            "DM\\SynologyBundle\\Synology::postPackageInstall"
+        ],
+        "post-package-update": [
+            "DM\\SynologyBundle\\Synology::postPackageInstall"
         ],
         "post-package-uninstall": [
-            "DM\\SynologyBundle::postPackageUninstall"
+            "DM\\SynologyBundle\\Synology::postPackageUninstall"
         ]
     }
 }
