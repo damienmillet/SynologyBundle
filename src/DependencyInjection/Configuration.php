@@ -1,7 +1,6 @@
 <?php
 
-namespace DM\SynologyBundle\DependencyInjection; // TODO : change for your Namespace\DependencyInjection
-
+namespace DM\SynologyBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -10,17 +9,15 @@ class Configuration implements ConfigurationInterface
 {
     public function getConfigTreeBuilder()
     {
-        /*
-        $treeBuilder = new TreeBuilder('dm_synology'); // TODO : change for define validation of arguments
+        $treeBuilder = new TreeBuilder('synology');
         $rootNode = $treeBuilder->getRootNode();
 
-        $rootNode
-            ->children()
-                ->booleanNode('argument')->defaultTrue()->info('Whether or not you believe in argument')->end()
-            ->end()
-        ;
+        $rootNode->children()
+            ->variableNode('dsm_app_url')->end()
+            ->variableNode('dsm_app_id')->end()
+            ->variableNode('dsm_app_password')->end()
+        ->end();
 
         return $treeBuilder;
-        */
     }
 }

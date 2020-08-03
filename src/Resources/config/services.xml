@@ -3,13 +3,26 @@
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://symfony.com/schema/dic/services
         https://symfony.com/schema/dic/services/services-1.0.xsd">
-
     <services>
-        <!-- TODO : change for yours ClassName -->
-        <service id="dm_synology.synology" class="DM\SynologyBundle\Synology">
-            <!-- TODO : add arguments who're needed or nothing -->
+        <service id="dm_synology.token_authenticator" class="DM\SynologyBundle\Component\Security\TokenAuthenticator">
+            <argument type="service" id="DM\SynologyBundle\Component\Synology"/>
+            <argument type="service" id="doctrine.orm.entity_manager"/>
+            <argument type="service" id="session.flash_bag"/>
         </service>
-        <service id="DM\SynologyBundle\Synology" alias="dm_synology.synology">
+        <service id="dm_synology.synology" class="DM\SynologyBundle\Component\Synology">
+            <argument type="string" id="dsm_app_user"/>
+            <argument type="string" id="dsm_app_password"/>
+            <argument type="string" id="dsm_app_url"/>
         </service>
+
+        <!-- controller -->
+        <service id="dm_synology.security_controller" class="DM\SynologyBundle\Controller\SecurityController"
+                 public="true" autowire="true" autoconfigure="true">
+            <argument type="service" id="security.authentication_utils"/>
+        </service>
+
+        <!-- autowiring aliases -->
+        <service id="DM\SynologyBundle\Component\Synology" alias="dm_synology.synology"/>
+        <service id="DM\SynologyBundle\Component\Security\TokenAuthenticator" alias="dm_synology.token_authenticator"/>
     </services>
 </container>
