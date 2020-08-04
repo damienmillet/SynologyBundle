@@ -17,16 +17,12 @@ class SynologyExtension extends Extension
         $configuration = $this->getConfiguration($configs, $container) ?? new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
         
-        echo basename(__DIR__, 2) . '/config/packages/synology.yaml');
+        echo basename(__DIR__, 2) . '/config/packages/synology.yaml';
 
-        if (is_file(basename(__DIR__, 2) . '/config/packages/synology.yaml')) {
-            $configuration = $this->getConfiguration($configs, $container) ?? new Configuration();
-            $config = $this->processConfiguration($configuration, $configs);
-
-            $definition = $container->getDefinition('dm_synology.synology');
-            $definition->setArgument('$user', $config['dsm_app_id']);
-            $definition->setArgument('$password', $config['dsm_app_password']);
-            $definition->setArgument('$url', $config['dsm_app_url']);
-        }
+        $definition = $container->getDefinition('dm_synology.synology');
+        $definition->setArgument('$user', $config['dsm_app_id']);
+        $definition->setArgument('$password', $config['dsm_app_password']);
+        $definition->setArgument('$url', $config['dsm_app_url']);
     }
+
 }
