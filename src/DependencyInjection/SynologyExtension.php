@@ -16,6 +16,8 @@ class SynologyExtension extends Extension
 
         $configuration = $this->getConfiguration($configs, $container) ?? new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
+        
+        echo basename(__DIR__, 2) . '/config/packages/synology.yaml');
 
         if (is_file(basename(__DIR__, 2) . '/config/packages/synology.yaml')) {
             $configuration = $this->getConfiguration($configs, $container) ?? new Configuration();
