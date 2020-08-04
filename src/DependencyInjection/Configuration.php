@@ -13,10 +13,10 @@ class Configuration implements ConfigurationInterface
         $rootNode = $treeBuilder->getRootNode();
 
         $rootNode->children()
-            ->variableNode('dsm_app_url')->end()
-            ->variableNode('dsm_app_id')->end()
-            ->variableNode('dsm_app_password')->end()
-        ->end();
+            ->variableNode('dsm_app_url')->defaultNull()->end()
+            ->variableNode('dsm_app_id')->defaultNull()->end()
+            ->variableNode('dsm_app_password')->defaultNull()->end()
+            ->end();
 
         return $treeBuilder;
     }
