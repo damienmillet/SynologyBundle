@@ -1,8 +1,6 @@
 <?php
 
-
 namespace DM\SynologyBundle;
-
 
 use Symfony\Component\Yaml\Yaml;
 
@@ -10,6 +8,7 @@ final class Synology
 {
     public static function postPackageInstall()
     {
+        dump((dirname(__DIR__)));
         self::createPackageYaml();
         self::createRoutesYaml();
         self::addToEnv();
@@ -31,7 +30,7 @@ final class Synology
             ]
         ];
 
-        file_put_contents((dirname(__DIR__,4) . '/config/packages/synology.yaml'), Yaml::dump($array));
+        file_put_contents((dirname(__DIR__) . '/config/packages/synology.yaml'), Yaml::dump($array));
     }
 
     private static function createRoutesYaml()
@@ -43,12 +42,12 @@ final class Synology
             ]
         ];
 
-        file_put_contents((dirname(__DIR__,4) . '/config/routes/synology.yaml'), Yaml::dump($array));
+        file_put_contents((dirname(__DIR__) . '/config/routes/synology.yaml'), Yaml::dump($array));
     }
 
     private static function addToEnv()
     {
-        $file = dirname(__DIR__,4) . '/.env';
+        $file = dirname(__DIR__) . '/.env';
         $start = "\n###> damienmillet/synology-bundle ###\n";
         $env = ['DSM_APP_URL', 'DSM_APP_ID', 'DSM_APP_PASSWORD'];
         $end = "###< damienmillet/synology-bundle ###";
@@ -68,17 +67,17 @@ final class Synology
 
     private static function removeYamls()
     {
-        if (is_dir($file = dirname(__DIR__,4) . '/config/packages/synology.yaml')) {
+        if (is_dir($file = dirname(__DIR__) . '/config/packages/synology.yaml')) {
             unlink($file);
         }
-        if (is_dir($file = dirname(__DIR__,4) . '/config/routes/synology.yaml')) {
+        if (is_dir($file = dirname(__DIR__) . '/config/routes/synology.yaml')) {
             unlink($file);
         }
     }
 
     private static function remToEnv()
     {
-        $file = dirname(__DIR__,4) . '/.env';
+        $file = dirname(__DIR__) . '/.env';
 
         $start = "\n###> damienmillet/synology-bundle ###";
         $end = "###< damienmillet/synology-bundle ###\n";
