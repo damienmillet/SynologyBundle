@@ -21,7 +21,7 @@ trait SynologyTrait
     {
         !$auth ?: $this->login($session);
         $req = $this->requestEngine($method);
-        $response = $this->client->request($req['method'], $this->url . $req['url']);
+        $response = $this->client->request($req['method'], $req['url']);
         !$auth ?: $this->logout($session);
         return \GuzzleHttp\json_decode($response->getBody());
     }
