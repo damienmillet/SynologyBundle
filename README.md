@@ -28,3 +28,8 @@ synology:
     prefix: /
 
 ```
+
+make:auth => 0
+make:user => username
+          => check user passwords => no
+
