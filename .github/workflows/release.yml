@@ -1,0 +1,17 @@
+name: Create a Release
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Create a Release
+      uses: actions/create-release@v1
+
