@@ -64,7 +64,7 @@ class TokenAuthenticator extends AbstractGuardAuthenticator
     public function getCredentials(Request $request)
     {
         $login = $this->synology->getToken($request->request->get('username'), $request->request->get('password'));
-        $user = $this->synology->getNormalUser();
+        $user = $this->synology->request((new NormalUser())->getUser(), 'filestation', false);
 
         if (!$login->success || !$user->success) {
             return false;
