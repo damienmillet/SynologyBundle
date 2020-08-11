@@ -8,7 +8,7 @@ final class Synology
 {
     public static function postPackageInstall()
     {
-        dump((dirname(__DIR__)));
+        //dump((dirname(__DIR__)));
         self::createPackageYaml();
         self::createRoutesYaml();
         self::addToEnv();
