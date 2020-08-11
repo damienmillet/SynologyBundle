@@ -4,6 +4,7 @@ namespace DM\SynologyBundle\Component\Security;
 
 use App\Entity\User;
 use DM\SynologyBundle\Component\Synology;
+use DM\SynologyBundle\Component\WebApi\Core\NormalUser;
 use Doctrine\ORM\EntityManager;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
