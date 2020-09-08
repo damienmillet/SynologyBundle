@@ -23,9 +23,9 @@ class Task
                 'api' => self::API,
                 'version' => 1,
                 'method' => 'list',
-                'offset' => $opt['offset'] ?: 0,
-                'limit' => $opt['limit'] ?: -1,
-                'additionnal' => $opt['additionnal'] ?: NULL
+                'offset' => $opt['offset'] ?? 0,
+                'limit' => $opt['limit'] ?? -1,
+                'additionnal' => $opt['additionnal'] ?? NULL
             ]
         ];
     }
@@ -43,8 +43,8 @@ class Task
                 'api' => self::API,
                 'version' => 1,
                 'method' => 'getconfig',
-                'id' => $opt['id'] ?: 0,
-                'additionnal' => $opt['additionnal'] ?: NULL
+                'id' => $opt['id'] ?? 0,
+                'additionnal' => $opt['additionnal'] ?? NULL
             ]
         ];
     }
@@ -62,12 +62,12 @@ class Task
                 'api' => self::API,
                 'version' => 1,
                 'method' => 'create',
-                'uri' => $opt['uri'] ?: NULL,
-                'file' => $opt['file'] ?: NULL,
-                'username' => $opt['username'] ?: NULL,
-                'password' => $opt['password'] ?: NULL,
-                'unzip_password' => $opt['unzip_password'] ?: NULL,
-                'destination' => $opt['destination'] ?: NULL
+                'uri' => $opt['uri'] ?? NULL,
+                'file' => $opt['file'] ?? NULL,
+                'username' => $opt['username'] ?? NULL,
+                'password' => $opt['password'] ??NULL,
+                'unzip_password' => $opt['unzip_password'] ?? NULL,
+                'destination' => $opt['destination'] ?? NULL
             ]
         ];
     }
@@ -82,7 +82,7 @@ class Task
                 'version' => 1,
                 'method' => 'delete',
                 'id' => $id,
-                'force_complete' => $opt['force_complete'] ?: FALSE
+                'force_complete' => $opt['force_complete'] ?? FALSE
             ]
         ];
     }
@@ -138,7 +138,7 @@ class Task
                 'version' => 1,
                 'method' => 'edit',
                 'id' => $id,
-                'destination' => $opt['destination'] ?: NULL
+                'destination' => $opt['destination'] ?? NULL
             ]
         ];
     }

@@ -24,12 +24,12 @@ class Lists
                 'api' => self::API,
                 'version' => 2,
                 'method' => 'list_share',
-                'offset' => $opt['offset'] ?: 0,
-                'limit' => $opt['limit'] ?: 0,
-                'sort_by' => $opt['sort_by'] ?: 'name',
-                'sort_direction' => $opt['sort_direction'] ?: 'asc',
-                'only_writable' => $opt['only_writable'] ?: FALSE,
-                'additional' => $opt['additional'] ?: NULL
+                'offset' => $opt['offset'] ?? 0,
+                'limit' => $opt['limit'] ?? 0,
+                'sort_by' => $opt['sort_by'] ?? 'name',
+                'sort_direction' => $opt['sort_direction'] ?? 'asc',
+                'only_writable' => $opt['only_writable'] ?? FALSE,
+                'additional' => $opt['additional'] ?? NULL
             ]
         ];
     }
@@ -47,15 +47,15 @@ class Lists
                 'api' => self::API,
                 'version' => 2,
                 'method' => 'list',
-                'forlder_path' => $opt['forlder_path'] ?: NULL,
-                'pattern' => $opt['pattern'] ?: NULL,
-                'filetype' => $opt['filetype'] ?: 'all',
-                'goto_path' => $opt['goto_path'] ?: NULL,
-                'offset' => $opt['offset'] ?: 0,
-                'limit' => $opt['limit'] ?: 0,
-                'sort_by' => $opt['sort_by'] ?: 'name',
-                'sort_direction' => $opt['sort_direction'] ?: 'asc',
-                'additional' => $opt['additional'] ?: NULL
+                'forlder_path' => $opt['forlder_path'] ?? NULL,
+                'pattern' => $opt['pattern'] ?? NULL,
+                'filetype' => $opt['filetype'] ?? 'all',
+                'goto_path' => $opt['goto_path'] ?? NULL,
+                'offset' => $opt['offset'] ?? 0,
+                'limit' => $opt['limit'] ?? 0,
+                'sort_by' => $opt['sort_by'] ?? 'name',
+                'sort_direction' => $opt['sort_direction'] ?? 'asc',
+                'additional' => $opt['additional'] ?? NULL
             ]
         ];
     }
@@ -69,8 +69,8 @@ class Lists
                 'api' => self::API,
                 'version' => 2,
                 'method' => 'getinfo',
-                'path' => $opt['path'] ?: NULL,
-                'additional' => $opt['additional'] ?: NULL
+                'path' => $opt['path'] ?? NULL,
+                'additional' => $opt['additional'] ?? NULL
             ]
         ];
     }

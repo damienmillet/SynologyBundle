@@ -23,7 +23,7 @@ class BTSearch
                 'version' => 1,
                 'method' => 'start',
                 'keyword' => $opt['keyword'],
-                'module' => $opt['module'] ?: 'enabled',
+                'module' => $opt['module'] ?? 'enabled',
             ]
         ];
     }

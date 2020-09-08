@@ -18,10 +18,10 @@ class Info
                 'api' => self::API,
                 'version' => 1,
                 'method' => 'get',
-                'is_manager' => $opt['is_manager'] ?: NULL,
-                'support_virtual' => $opt['support_virtual'] ?: NULL,
-                'support_sharing' => $opt['support_sharing'] ?: NULL,
-                'hostname' => $opt['hostname'] ?: NULL,
+                'is_manager' => $opt['is_manager'] ?? NULL,
+                'support_virtual' => $opt['support_virtual'] ?? NULL,
+                'support_sharing' => $opt['support_sharing'] ?? NULL,
+                'hostname' => $opt['hostname'] ?? NULL,
             ]
         ];
     }

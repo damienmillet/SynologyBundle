@@ -25,7 +25,7 @@ class Info
                 'api' => self::API,
                 'version' => 1,
                 'method' => 'query',
-                'query' => $opt['query'] ?: 'all'
+                'query' => $opt['query'] ?? 'all'
             ]
         ];
     }

@@ -24,8 +24,8 @@ class RssFeed
                 'version' => 1,
                 'method' => 'list',
                 'id' => $id,
-                'offset' => $opt['offset'] ?: 0,
-                'limit' => $opt['limit'] ?: -1,
+                'offset' => $opt['offset'] ?? 0,
+                'limit' => $opt['limit'] ?? -1,
             ]
         ];
     }
