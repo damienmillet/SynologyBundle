@@ -7,7 +7,7 @@ namespace DM\SynologyBundle\Component\WebApi\DownloadStation;
 class BTSearch
 {
     private const PATH = 'webapi/DownloadStation/btsearch.cgi';
-    private const API = 'DownloadStation.BTSearch';
+    private const API = 'SYNO.DownloadStation.BTSearch';
 
     /**
      * @param array $opt
