@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 class Task
 {
     private const PATH = 'webapi/DownloadStation/task.cgi';
-    private const API = 'DownloadStation.Task';
+    private const API = 'SYNO.DownloadStation.Task';
 
     /**
      * @param array $opt

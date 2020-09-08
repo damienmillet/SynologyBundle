@@ -7,7 +7,7 @@ namespace DM\SynologyBundle\Component\WebApi\DownloadStation;
 class RssSite
 {
     private const PATH = 'webapi/DownloadStation/RRSsite.cgi';
-    private const API = 'DownloadStation.RSS.Site';
+    private const API = 'SYNO.DownloadStation.RSS.Site';
 
     /**
      * @param array $opt

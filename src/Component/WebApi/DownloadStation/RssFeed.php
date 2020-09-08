@@ -7,7 +7,7 @@ namespace DM\SynologyBundle\Component\WebApi\DownloadStation;
 class RssFeed
 {
     private const PATH = 'webapi/DownloadStation/RRSfeed.cgi';
-    private const API = 'DownloadStation.RSS.Feed';
+    private const API = 'SYNO.DownloadStation.RSS.Feed';
 
     /**
      * @param int $id

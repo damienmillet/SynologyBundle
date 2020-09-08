@@ -7,7 +7,7 @@ namespace DM\SynologyBundle\Component\WebApi\DownloadStation;
 class Schedule
 {
     private const PATH = 'webapi/DownloadStation/schedule.cgi';
-    private const API = 'DownloadStation.Schedule';
+    private const API = 'SYNO.DownloadStation.Schedule';
 
     /**
      * @return array

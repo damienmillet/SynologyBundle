@@ -7,7 +7,7 @@ namespace DM\SynologyBundle\Component\WebApi\DownloadStation;
 class Statistic
 {
     private const PATH = 'webapi/DownloadStation/statistic.cgi';
-    private const API = 'DownloadStation.Statistic';
+    private const API = 'SYNO.DownloadStation.Statistic';
 
     public static function getInfo(): array
     {
