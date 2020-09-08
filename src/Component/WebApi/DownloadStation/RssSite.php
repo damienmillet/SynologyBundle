@@ -22,8 +22,8 @@ class RssSite
                 'api' => self::API,
                 'version' => 1,
                 'method' => 'list',
-                'offset' => $opt['offset'] ?: 0,
-                'limit' => $opt['limit'] ?: -1
+                'offset' => $opt['offset'] ?? 0,
+                'limit' => $opt['limit'] ?? -1
             ]
         ];
     }

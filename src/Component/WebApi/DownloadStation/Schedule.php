@@ -38,8 +38,8 @@ class Schedule
                 'api' => self::API,
                 'version' => 1,
                 'method' => 'getconfig',
-                'enabled' => $opt['enabled'] ?: NULL,
-                '$emule_enabled' => $opt['emuleEnabled'] ?: NULL
+                'enabled' => $opt['enabled'] ?? NULL,
+                '$emule_enabled' => $opt['emuleEnabled'] ?? NULL
             ]
         ];
     }

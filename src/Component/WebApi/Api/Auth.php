@@ -29,9 +29,9 @@ class Auth
                 'query' => 'all',
                 'account' => $user,
                 'passwd' => $password,
-                'session' => $opt['session'] ?: 'filestation',
-                'otp_code' => $opt['otp_code'] ?: NULL,
-                'format' => $opt['format'] ?: 'cookie'
+                'session' => $opt['session'] ?? 'filestation',
+                'otp_code' => $opt['otp_code'] ?? NULL,
+                'format' => $opt['format'] ?? 'cookie'
             ]
         ];
     }
