@@ -12,15 +12,10 @@ class Lists
     private const API = 'SYNO.FileStation.List';
 
     /**
-     * @param int $offset
-     * @param int $limit
-     * @param string $sortBy
-     * @param string $sortDirection
-     * @param bool $onlywritable
-     * @param string|null $additional
+     * @param array $opt
      * @return array
      */
-    public function listShare(int $offset = 0, int $limit = 0, string $sortBy = 'name', string $sortDirection = 'asc', bool $onlywritable = false, string $additional = null)
+    public static function listShare(array $opt = []): array
     {
         return [
             'method' => 'GET',
@@ -29,31 +24,21 @@ class Lists
                 'api' => self::API,
                 'version' => 2,
                 'method' => 'list_share',
-                'offset' => $offset,
-                'limit' => $limit,
-                'sort_by' => $sortBy,
-                'sort_direction' => $sortDirection,
-                'only_writable' => $onlywritable,
-                'additional' => $additional
+                'offset' => $opt['offset'] ?: 0,
+                'limit' => $opt['limit'] ?: 0,
+                'sort_by' => $opt['sort_by'] ?: 'name',
+                'sort_direction' => $opt['sort_direction'] ?: 'asc',
+                'only_writable' => $opt['only_writable'] ?: FALSE,
+                'additional' => $opt['additional'] ?: NULL
             ]
         ];
     }
 
     /**
-     * @param string $forlderPath
-     * @param string $pattern
-     * @param string $gotoPath
-     * @param int $offset
-     * @param int $limit
-     * @param string $sortBy
-     * @param string $filetype
-     * @param string $sortDirection
-     * @param string|null $additional
+     * @param array $opt
      * @return array
      */
-    public function listFile(string $forlderPath = null, string $pattern = null, string $gotoPath = null, int $offset = 0, int $limit = 0,
-                             string $sortBy = 'name', string $filetype = 'all',
-                             string $sortDirection = 'asc', string $additional = null)
+    public static function listFile(array $opt = []): array
     {
         return [
             'method' => 'GET',
@@ -62,20 +47,20 @@ class Lists
                 'api' => self::API,
                 'version' => 2,
                 'method' => 'list',
-                'forlder_path' => $forlderPath,
-                'pattern' => $pattern,
-                'filetype' => $filetype,
-                'goto_path' => $gotoPath,
-                'offset' => $offset,
-                'limit' => $limit,
-                'sort_by' => $sortBy,
-                'sort_direction' => $sortDirection,
-                'additional' => $additional
+                'forlder_path' => $opt['forlder_path'] ?: NULL,
+                'pattern' => $opt['pattern'] ?: NULL,
+                'filetype' => $opt['filetype'] ?: 'all',
+                'goto_path' => $opt['goto_path'] ?: NULL,
+                'offset' => $opt['offset'] ?: 0,
+                'limit' => $opt['limit'] ?: 0,
+                'sort_by' => $opt['sort_by'] ?: 'name',
+                'sort_direction' => $opt['sort_direction'] ?: 'asc',
+                'additional' => $opt['additional'] ?: NULL
             ]
         ];
     }
 
-    public function getInfo(string $path = null, string $additional = null)
+    public static function getInfo(array $opt = []): array
     {
         return [
             'method' => 'GET',
@@ -84,8 +69,8 @@ class Lists
                 'api' => self::API,
                 'version' => 2,
                 'method' => 'getinfo',
-                'path' => $path,
-                'additional' => $additional
+                'path' => $opt['path'] ?: NULL,
+                'additional' => $opt['additional'] ?: NULL
             ]
         ];
     }

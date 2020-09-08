@@ -10,11 +10,10 @@ class RssSite
     private const API = 'DownloadStation.RSS.Site';
 
     /**
-     * @param int $offset
-     * @param int $limit
+     * @param array $opt
      * @return array
      */
-    public function getList(int $offset = 0, int $limit = -1): array
+    public static function getList(array $opt = []): array
     {
         return [
             'method' => 'GET',
@@ -23,8 +22,8 @@ class RssSite
                 'api' => self::API,
                 'version' => 1,
                 'method' => 'list',
-                'offset' => $offset,
-                'limit' => $limit,
+                'offset' => $opt['offset'] ?: 0,
+                'limit' => $opt['limit'] ?: -1
             ]
         ];
     }
@@ -33,7 +32,7 @@ class RssSite
      * @param int|string $id
      * @return array
      */
-    public function refresh($id = 'all'): array
+    public static function refresh($id = 'all'): array
     {
         return [
             'method' => 'GET',

@@ -19,7 +19,7 @@ class Upload
      * @param $overwrite
      * @return array
      */
-    public function upload($path, $createParents, $file, $overwrite): array
+    public static function upload($path, $createParents, $file, $overwrite): array
     {
         return [
             'method' => 'POST',

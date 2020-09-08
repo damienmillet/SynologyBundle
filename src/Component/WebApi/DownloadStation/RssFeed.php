@@ -11,11 +11,10 @@ class RssFeed
 
     /**
      * @param int $id
-     * @param int $offset
-     * @param int $limit
+     * @param array $opt
      * @return array
      */
-    public function getList(int $id, int $offset = 0, int $limit = -1): array
+    public static function getList(int $id, array $opt): array
     {
         return [
             'method' => 'GET',
@@ -25,8 +24,8 @@ class RssFeed
                 'version' => 1,
                 'method' => 'list',
                 'id' => $id,
-                'offset' => $offset,
-                'limit' => $limit,
+                'offset' => $opt['offset'] ?: 0,
+                'limit' => $opt['limit'] ?: -1,
             ]
         ];
     }

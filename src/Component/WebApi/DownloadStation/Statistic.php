@@ -9,7 +9,7 @@ class Statistic
     private const PATH = 'webapi/DownloadStation/statistic.cgi';
     private const API = 'DownloadStation.Statistic';
 
-    public function getInfo(): array
+    public static function getInfo(): array
     {
         return [
             'method' => 'GET',

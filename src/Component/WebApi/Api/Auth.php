@@ -14,13 +14,10 @@ class Auth
     /**
      * @param string $user
      * @param string $password
-     * @param string $session
-     * @param string $format
-     * @param string|null $otpCode
+     * @param array $opt
      * @return array
      */
-    public function getLogin(string $user, string $password, string $session, string $format = 'cookie',
-                             string $otpCode = null): array
+    public static function getLogin(string $user, string $password, array $opt = []): array
     {
         return [
             'method' => 'GET',
@@ -32,9 +29,9 @@ class Auth
                 'query' => 'all',
                 'account' => $user,
                 'passwd' => $password,
-                'session' => $session,
-                '$otp_code' => $otpCode,
-                'format' => $format
+                'session' => $opt['session'] ?: 'filestation',
+                'otp_code' => $opt['otp_code'] ?: NULL,
+                'format' => $opt['format'] ?: 'cookie'
             ]
         ];
     }
@@ -43,7 +40,7 @@ class Auth
      * @param string $session
      * @return array
      */
-    public function getLogout(string $session): array
+    public static function getLogout(string $session): array
     {
         return [
             'method' => 'GET',
