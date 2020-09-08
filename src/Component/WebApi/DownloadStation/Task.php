@@ -56,7 +56,7 @@ class Task
     public static function create(array $opt = []): array
     {
         return [
-            'method' => 'POST',
+            'method' => 'GET',
             'path' => self::PATH,
             'query' => [
                 'api' => self::API,
