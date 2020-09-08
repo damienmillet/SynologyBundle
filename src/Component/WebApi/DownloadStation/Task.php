@@ -25,7 +25,7 @@ class Task
                 'method' => 'list',
                 'offset' => $opt['offset'] ?? 0,
                 'limit' => $opt['limit'] ?? -1,
-                'additionnal' => $opt['additionnal'] ?? NULL
+                'additional' => $opt['additional'] ?? NULL
             ]
         ];
     }
@@ -44,7 +44,7 @@ class Task
                 'version' => 1,
                 'method' => 'getconfig',
                 'id' => $opt['id'] ?? 0,
-                'additionnal' => $opt['additionnal'] ?? NULL
+                'additional' => $opt['additional'] ?? NULL
             ]
         ];
     }
