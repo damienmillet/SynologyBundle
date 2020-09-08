@@ -24,21 +24,21 @@ class Synology
         $this->user = $user;
         $this->password = $password;
         $this->url = $url;
-        $this->client = new Client(['cookies' => true]);
+        $this->client = new Client(['cookies' => TRUE]);
     }
 
     public function getNormalUser()
     {
-        return $this->request((new NormalUser())->getUser(), 'filestation', true);
+        return $this->request(NormalUser::getUser(), 'filestation', TRUE);
     }
 
     public function getInfo()
     {
-        return $this->request((new Info())->getInfo(), false);
+        return $this->request(Info::getInfo());
     }
 
     public function getToken(string $user, string $password)
     {
-        return $this->request((new Auth())->getLogin($user, $password, 'filestation'), null, false);
+        return $this->request(Auth::getLogin($user, $password));
     }
 }

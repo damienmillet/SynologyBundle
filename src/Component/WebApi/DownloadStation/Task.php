@@ -11,12 +11,10 @@ class Task
     private const API = 'DownloadStation.Task';
 
     /**
-     * @param int $offset
-     * @param int $limit
-     * @param string|null $additional
+     * @param array $opt
      * @return array
      */
-    public function getList(int $offset = 0, int $limit = -1, string $additional = null): array
+    public static function getList(array $opt = []): array
     {
         return [
             'method' => 'GET',
@@ -25,19 +23,18 @@ class Task
                 'api' => self::API,
                 'version' => 1,
                 'method' => 'list',
-                'offset' => $offset,
-                'limit' => $limit,
-                'additionnal' => $additional
+                'offset' => $opt['offset'] ?: 0,
+                'limit' => $opt['limit'] ?: -1,
+                'additionnal' => $opt['additionnal'] ?: NULL
             ]
         ];
     }
 
     /**
-     * @param int $id
-     * @param string|null $additional
+     * @param array $opt
      * @return array
      */
-    public function getInfo(int $id = 0, string $additional = null): array
+    public static function getInfo(array $opt = []): array
     {
         return [
             'method' => 'GET',
@@ -46,23 +43,17 @@ class Task
                 'api' => self::API,
                 'version' => 1,
                 'method' => 'getconfig',
-                'id' => $id,
-                'additionnal' => $additional
+                'id' => $opt['id'] ?: 0,
+                'additionnal' => $opt['additionnal'] ?: NULL
             ]
         ];
     }
 
     /**
-     * @param string|null $uri
-     * @param UploadedFile|null $file
-     * @param string|null $username
-     * @param string|null $password
-     * @param string|null $unzipPassword
-     * @param string|null $destination
+     * @param array $opt
      * @return array
      */
-    public function create(string $uri = null, UploadedFile $file = null, string $username = null,
-                           string $password = null, string $unzipPassword = null, string $destination = null): array
+    public static function create(array $opt = []): array
     {
         return [
             'method' => 'POST',
@@ -71,17 +62,17 @@ class Task
                 'api' => self::API,
                 'version' => 1,
                 'method' => 'create',
-                'uri' => $uri,
-                'file' => $file,
-                'username' => $username,
-                'password' => $password,
-                'unzip_password' => $unzipPassword,
-                'destination' => $destination
+                'uri' => $opt['uri'] ?: NULL,
+                'file' => $opt['file'] ?: NULL,
+                'username' => $opt['username'] ?: NULL,
+                'password' => $opt['password'] ?: NULL,
+                'unzip_password' => $opt['unzip_password'] ?: NULL,
+                'destination' => $opt['destination'] ?: NULL
             ]
         ];
     }
 
-    public function delete(string $id, bool $forceComplete = false): array
+    public static function delete(string $id, array $opt = []): array
     {
         return [
             'method' => 'GET',
@@ -91,7 +82,7 @@ class Task
                 'version' => 1,
                 'method' => 'delete',
                 'id' => $id,
-                'force_complete' => $forceComplete
+                'force_complete' => $opt['force_complete'] ?: FALSE
             ]
         ];
     }
@@ -100,7 +91,7 @@ class Task
      * @param string $id
      * @return array
      */
-    public function pause(string $id): array
+    public static function pause(string $id): array
     {
         return [
             'method' => 'GET',
@@ -118,7 +109,7 @@ class Task
      * @param string $id
      * @return array
      */
-    public function resume(string $id): array
+    public static function resume(string $id): array
     {
         return [
             'method' => 'GET',
@@ -134,10 +125,10 @@ class Task
 
     /**
      * @param string $id
-     * @param string|null $destination
+     * @param array $opt
      * @return array
      */
-    public function edit(string $id, string $destination = null): array
+    public static function edit(string $id, array $opt = []): array
     {
         return [
             'method' => 'GET',
@@ -147,7 +138,7 @@ class Task
                 'version' => 1,
                 'method' => 'edit',
                 'id' => $id,
-                'destination' => $destination
+                'destination' => $opt['destination'] ?: NULL
             ]
         ];
     }

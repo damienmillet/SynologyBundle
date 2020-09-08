@@ -9,7 +9,7 @@ class NormalUser
     private const PATH = 'webapi/entry.cgi';
     private const API = 'SYNO.Core.NormalUser';
 
-    public function getUser()
+    public static function getUser(): array
     {
         return [
             'method' => 'GET',

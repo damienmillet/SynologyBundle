@@ -13,10 +13,10 @@ class Info
     private const API = 'SYNO.API.Info';
 
     /**
-     * @param string $query
+     * @param array $opt
      * @return array
      */
-    public function getInfo(string $query = 'all'): array
+    public static function getInfo(array $opt = []): array
     {
         return [
             'method' => 'GET',
@@ -25,7 +25,8 @@ class Info
                 'api' => self::API,
                 'version' => 1,
                 'method' => 'query',
-                'query' => $query]
+                'query' => $opt['query'] ?: 'all'
+            ]
         ];
     }
 }

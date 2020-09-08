@@ -12,7 +12,7 @@ class Info
     /**
      * @return array
      */
-    public function getInfo(): array
+    public static function getInfo(): array
     {
         return [
             'method' => 'GET',
@@ -28,7 +28,7 @@ class Info
     /**
      * @return array
      */
-    public function getConfig()
+    public static function getConfig(): array
     {
         return [
             'method' => 'GET',
@@ -41,24 +41,21 @@ class Info
         ];
     }
 
-    public function setServerConfig($options = []): array
+    /**
+     * @param array $opt
+     * @return array
+     */
+    public static function setServerConfig(array $opt): array
     {
-
-
-        $array = [
+        return [
             'method' => 'GET',
             'path' => self::PATH,
             'query' => [
                 'api' => self::API,
                 'version' => 1,
                 'method' => 'setserverconfig',
+                'query' => $opt['query']
             ]
         ];
-
-        foreach ($options as $key => $value) {
-            $array['query'] = [$key => $value];
-        }
-
-        return $array;
     }
 }

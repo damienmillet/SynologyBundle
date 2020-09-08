@@ -65,10 +65,10 @@ class TokenAuthenticator extends AbstractGuardAuthenticator
     public function getCredentials(Request $request)
     {
         $login = $this->synology->getToken($request->request->get('username'), $request->request->get('password'));
-        $user = $this->synology->request((new NormalUser())->getUser(), 'filestation', false);
+        $user = $this->synology->request(NormalUser::getUser());
 
         if (!$login->success || !$user->success) {
-            return false;
+            return FALSE;
         }
         // if token is ok, tokenIsOk is called
         !$login->success ?: $this->tokenIsOk($user);
@@ -78,10 +78,10 @@ class TokenAuthenticator extends AbstractGuardAuthenticator
 
     public function getUser($credentials, UserProviderInterface $userProvider)
     {
-        if (null === $credentials) {
+        if (NULL === $credentials) {
             // The token header was empty, authentication fails with HTTP Status
             // Code 401 "Unauthorized"
-            return null;
+            return NULL;
         }
 
         // if a User is returned, checkCredentials() is called
@@ -91,20 +91,20 @@ class TokenAuthenticator extends AbstractGuardAuthenticator
 
     public function checkCredentials($credentials, UserInterface $user)
     {
-        return true;
+        return TRUE;
     }
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, $providerKey)
     {
-        $this->onSuccess($request,$token);
+        $this->onSuccess($request, $token);
         // on success, let the request continue
-        return null;
+        return NULL;
     }
 
     public function onAuthenticationFailure(Request $request, AuthenticationException $exception)
     {
         $this->onFailure();
-        return null;
+        return NULL;
         //return new JsonResponse(['message' => 'Ho no ! Wasn\'t good credentials !'], Response::HTTP_UNAUTHORIZED);
     }
 
@@ -114,7 +114,7 @@ class TokenAuthenticator extends AbstractGuardAuthenticator
      * @param AuthenticationException|null $authException
      * @return JsonResponse
      */
-    public function start(Request $request, AuthenticationException $authException = null)
+    public function start(Request $request, AuthenticationException $authException = NULL)
     {
         $data = [
             // you might translate this message
@@ -126,6 +126,6 @@ class TokenAuthenticator extends AbstractGuardAuthenticator
 
     public function supportsRememberMe()
     {
-        return false;
+        return FALSE;
     }
 }

@@ -12,7 +12,7 @@ class Schedule
     /**
      * @return array
      */
-    public function getConfig(): array
+    public static function getConfig(): array
     {
         return [
             'method' => 'GET',
@@ -26,11 +26,10 @@ class Schedule
     }
 
     /**
-     * @param bool|null $enabled
-     * @param bool|null $emuleEnabled
+     * @param array $opt
      * @return array
      */
-    public function setConfig(bool $enabled = null, bool $emuleEnabled = null): array
+    public static function setConfig(array $opt = []): array
     {
         return [
             'method' => 'GET',
@@ -39,8 +38,8 @@ class Schedule
                 'api' => self::API,
                 'version' => 1,
                 'method' => 'getconfig',
-                'enabled' => $enabled,
-                '$emule_enabled' => $emuleEnabled
+                'enabled' => $opt['enabled'] ?: NULL,
+                '$emule_enabled' => $opt['emuleEnabled'] ?: NULL
             ]
         ];
     }
