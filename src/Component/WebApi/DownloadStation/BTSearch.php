@@ -24,6 +24,7 @@ class BTSearch
                 'method' => 'start',
                 'keyword' => $opt['keyword'],
                 'module' => $opt['module'] ?? 'enabled',
+                '_sid' => $opt['_sid'] ?? NULL
             ]
         ];
     }
@@ -42,15 +43,17 @@ class BTSearch
                 'version' => 1,
                 'method' => 'start',
                 'taskid' => $opt['taskid'],
-                'query' => $opt['query']
+                'query' => $opt['query'],
+                '_sid' => $opt['_sid'] ?? NULL
             ]
         ];
     }
 
     /**
+     * @param array $opt
      * @return array
      */
-    public static function getCategory(): array
+    public static function getCategory(array $opt = []): array
     {
         return [
             'method' => 'GET',
@@ -59,6 +62,7 @@ class BTSearch
                 'api' => self::API,
                 'version' => 1,
                 'method' => 'getCategory',
+                '_sid' => $opt['_sid'] ?? NULL
             ]
         ];
     }
@@ -66,9 +70,10 @@ class BTSearch
     /**
      * @param string $id
      * @param string $title
+     * @param array $opt
      * @return array
      */
-    public static function clean(string $id, string $title): array
+    public static function clean(string $id, string $title, array $opt = []): array
     {
         return [
             'method' => 'GET',
@@ -78,12 +83,17 @@ class BTSearch
                 'version' => 1,
                 'method' => 'clean',
                 'id' => $id,
-                'title' => $title
+                'title' => $title,
+                '_sid' => $opt['_sid'] ?? NULL
             ]
         ];
     }
 
-    public static function getModule(): array
+    /**
+     * @param array $opt
+     * @return array
+     */
+    public static function getModule(array $opt = []): array
     {
         return [
             'method' => 'GET',
@@ -92,6 +102,7 @@ class BTSearch
                 'api' => self::API,
                 'version' => 1,
                 'method' => 'getModule',
+                '_sid' => $opt['_sid'] ?? NULL
             ]
         ];
     }

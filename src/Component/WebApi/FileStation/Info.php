@@ -22,6 +22,7 @@ class Info
                 'support_virtual' => $opt['support_virtual'] ?? NULL,
                 'support_sharing' => $opt['support_sharing'] ?? NULL,
                 'hostname' => $opt['hostname'] ?? NULL,
+                '_sid' => $opt['_sid'] ?? NULL
             ]
         ];
     }

@@ -49,7 +49,7 @@ class Auth
                 'api' => self::API,
                 'version' => 1,
                 'method' => 'logout',
-                'session' => $session,
+                'session' => $session
             ]
         ];
     }

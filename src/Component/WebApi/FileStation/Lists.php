@@ -29,7 +29,8 @@ class Lists
                 'sort_by' => $opt['sort_by'] ?? 'name',
                 'sort_direction' => $opt['sort_direction'] ?? 'asc',
                 'only_writable' => $opt['only_writable'] ?? FALSE,
-                'additional' => $opt['additional'] ?? NULL
+                'additional' => $opt['additional'] ?? NULL,
+                '_sid' => $opt['_sid'] ?? NULL
             ]
         ];
     }
@@ -55,7 +56,8 @@ class Lists
                 'limit' => $opt['limit'] ?? 0,
                 'sort_by' => $opt['sort_by'] ?? 'name',
                 'sort_direction' => $opt['sort_direction'] ?? 'asc',
-                'additional' => $opt['additional'] ?? NULL
+                'additional' => $opt['additional'] ?? NULL,
+                '_sid' => $opt['_sid'] ?? NULL
             ]
         ];
     }
@@ -70,7 +72,8 @@ class Lists
                 'version' => 2,
                 'method' => 'getinfo',
                 'path' => $opt['path'] ?? NULL,
-                'additional' => $opt['additional'] ?? NULL
+                'additional' => $opt['additional'] ?? NULL,
+                '_sid' => $opt['_sid'] ?? NULL
             ]
         ];
     }

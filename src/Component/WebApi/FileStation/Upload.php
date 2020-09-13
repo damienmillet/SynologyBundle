@@ -17,9 +17,10 @@ class Upload
      * @param $createParents
      * @param $file
      * @param $overwrite
+     * @param array $opt
      * @return array
      */
-    public static function upload($path, $createParents, $file, $overwrite): array
+    public static function upload($path, $createParents, $file, $overwrite, array $opt = []): array
     {
         return [
             'method' => 'POST',
@@ -31,7 +32,8 @@ class Upload
                 'path' => $path,
                 'create_parents' => $createParents,
                 'file' => $file,
-                'overwrite' => $overwrite
+                'overwrite' => $overwrite,
+                '_sid' => $opt['_sid'] ?? NULL
             ]
         ];
     }

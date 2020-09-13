@@ -1,7 +1,5 @@
 # SynologyBundle
 
-
-
 Add this in the .env
 ```INI
 ###> damienmillet/synology-bundle ###

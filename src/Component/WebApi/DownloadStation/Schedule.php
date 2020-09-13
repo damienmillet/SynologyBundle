@@ -10,9 +10,10 @@ class Schedule
     private const API = 'SYNO.DownloadStation.Schedule';
 
     /**
+     * @param array $opt
      * @return array
      */
-    public static function getConfig(): array
+    public static function getConfig(array $opt = []): array
     {
         return [
             'method' => 'GET',
@@ -21,6 +22,7 @@ class Schedule
                 'api' => self::API,
                 'version' => 1,
                 'method' => 'getconfig',
+                '_sid' => $opt['_sid'] ?? NULL
             ]
         ];
     }
@@ -39,7 +41,8 @@ class Schedule
                 'version' => 1,
                 'method' => 'getconfig',
                 'enabled' => $opt['enabled'] ?? NULL,
-                '$emule_enabled' => $opt['emuleEnabled'] ?? NULL
+                'emule_enabled' => $opt['emuleEnabled'] ?? NULL,
+                '_sid' => $opt['_sid'] ?? NULL
             ]
         ];
     }
