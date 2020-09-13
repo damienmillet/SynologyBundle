@@ -9,7 +9,7 @@ class NormalUser
     private const PATH = 'webapi/entry.cgi';
     private const API = 'SYNO.Core.NormalUser';
 
-    public static function getUser(): array
+    public static function getUser(array $opt = []): array
     {
         return [
             'method' => 'GET',
@@ -18,6 +18,7 @@ class NormalUser
                 'api' => self::API,
                 'version' => 1,
                 'method' => 'get',
+                '_sid' => $opt['_sid'] ?? NULL
             ]
         ];
     }

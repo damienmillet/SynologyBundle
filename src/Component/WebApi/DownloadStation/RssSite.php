@@ -23,16 +23,18 @@ class RssSite
                 'version' => 1,
                 'method' => 'list',
                 'offset' => $opt['offset'] ?? 0,
-                'limit' => $opt['limit'] ?? -1
+                'limit' => $opt['limit'] ?? -1,
+                '_sid' => $opt['_sid'] ?? NULL
             ]
         ];
     }
 
     /**
      * @param int|string $id
+     * @param array $opt
      * @return array
      */
-    public static function refresh($id = 'all'): array
+    public static function refresh($id = 'all', array $opt = []): array
     {
         return [
             'method' => 'GET',
@@ -42,6 +44,7 @@ class RssSite
                 'version' => 1,
                 'method' => 'refresh',
                 'id' => $id,
+                '_sid' => $opt['_sid'] ?? NULL
             ]
         ];
     }

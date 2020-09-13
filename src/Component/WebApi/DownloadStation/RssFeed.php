@@ -26,6 +26,7 @@ class RssFeed
                 'id' => $id,
                 'offset' => $opt['offset'] ?? 0,
                 'limit' => $opt['limit'] ?? -1,
+                '_sid' => $opt['_sid'] ?? NULL
             ]
         ];
     }

@@ -10,9 +10,10 @@ class Info
     private const API = 'SYNO.DownloadStation.Info';
 
     /**
+     * @param array $opt
      * @return array
      */
-    public static function getInfo(): array
+    public static function getInfo(array $opt = []): array
     {
         return [
             'method' => 'GET',
@@ -21,22 +22,7 @@ class Info
                 'api' => self::API,
                 'version' => 1,
                 'method' => 'getinfo',
-            ]
-        ];
-    }
-
-    /**
-     * @return array
-     */
-    public static function getConfig(): array
-    {
-        return [
-            'method' => 'GET',
-            'path' => self::PATH,
-            'query' => [
-                'api' => self::API,
-                'version' => 1,
-                'method' => 'getconfig',
+                '_sid' => $opt['_sid'] ?? NULL
             ]
         ];
     }
@@ -45,7 +31,25 @@ class Info
      * @param array $opt
      * @return array
      */
-    public static function setServerConfig(array $opt): array
+    public static function getConfig(array $opt = []): array
+    {
+        return [
+            'method' => 'GET',
+            'path' => self::PATH,
+            'query' => [
+                'api' => self::API,
+                'version' => 1,
+                'method' => 'getconfig',
+                '_sid' => $opt['_sid'] ?? NULL
+            ]
+        ];
+    }
+
+    /**
+     * @param array $opt
+     * @return array
+     */
+    public static function setServerConfig(array $opt = []): array
     {
         return [
             'method' => 'GET',
@@ -54,7 +58,8 @@ class Info
                 'api' => self::API,
                 'version' => 1,
                 'method' => 'setserverconfig',
-                'query' => $opt['query']
+                'query' => $opt['query'],
+                '_sid' => $opt['_sid'] ?? NULL
             ]
         ];
     }
